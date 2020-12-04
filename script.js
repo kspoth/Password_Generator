@@ -17,6 +17,9 @@ function writePassword() {
   var length = Number(
       prompt ("How long would you like your password to be? Select between 8-128 Characters")
       )
+      function generate() {
+        
+     
       if (length <= 8) { 
           alert ("Please choose a number greater than or equal to 8.");
           return;
@@ -25,6 +28,7 @@ function writePassword() {
           alert ("Please choose a less than or equal to 128.");
           return;
       }
+    }
       
 
   var lowerCase = confirm("Would you like lowercase numbers?");
@@ -33,24 +37,25 @@ function writePassword() {
   var special = confirm("Would you like special charcters?");
   var selectedCase = "";
 
-    if (userUpper === true) {
-     selectedCase = addCase(confirmUpper, selectedCase);
+    if (userlowerCase === true) {
+     selectedCase = addCase(confirmlCase, selectedCase);
     }
-    if (userLower === true) {
-     selectedCase = addCase(confirmLower, selectedCase);
+    if (userupperCase === true) {
+     selectedCase = addCase(confirmuCase, selectedCase);
     }
-    if (userNumerical === true) {
-     selectedCase = addCase(confirmNumerical, selectedCase);
+    if (usernumbers === true) {
+     selectedCase = addCase(confirmnum, selectedCase);
     }
-    if (userSpecial === true) {
-     selectedCase = addCase(confirmSpecial, selectedCase);
+    if (userspecial === true) {
+     selectedCase = addCase(confirmspecialChar, selectedCase);
     }
 
     for (var i = 0; i <= getLength; i++) {
 
      password = password + selectedCase.charAt(Math.floor((Math.random() * selectedCase.length) - 1));
- }
- selectedCase = "";
+    }
+} 
+
 
   passwordText.value = password;
 
@@ -63,14 +68,6 @@ function writePassword() {
         return selectedCase + type;
     }
     
-    function generate() {
-        password = "";
-        getLength = prompt("How long will your new password be? Please enter a number between 8 and 128.");
     
-        if ((getLength < 8) || (getLength > 128)) {
-            alert("Try again. Please enter a number between 8 and 128.");
-            generate();
-            return;
-        } 
 
 }
