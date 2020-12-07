@@ -1,73 +1,74 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lCase = "abcdefghijklmnopqrstuvwxyz"
-var uCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var num = "0123456789"
-var specialChar = ",./;'[]`-=<>?:{}~!@#$%^&*()_+"
-var password = "";
-var characters = "";
 
-// Write password to the #password input
+
+var loCase = "abcdefghijklmnopqrstuvwxyz";
+var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var num = "0123456789";
+var spChar = "!()-.?[]_`~;:!@#$%^&*+=";
+
+
 function writePassword() {
-  var passwordText = document.querySelector("#password");
 
+  
+  var length = Number(
+    prompt("Please choose a number from 8-128")
+  )
+    if (length < 8) {
+      alert('Try Again, please choose a number between 8 and 128');
+      return;
+    };
+    if (length > 128) {
+      alert('Try Again, please choose a number between 8 and 128');
+      return;
+    }
+  var lowerCase = confirm("Would you like lower case letters?");
+  var upperCase = confirm("Would you like upper case letters?");
+  var numbers = confirm("Do you want to include numbers?");
+  var specialChars = confirm("Do you want to include special characters?");
+
+ 
   var characters = "";
 
-  var length = Number(
-      prompt ("How long would you like your password to be? Select between 8-128 Characters")
-      )
-      function generate() {
-        
-     
-      if (length <= 8) { 
-          alert ("Please choose a number greater than or equal to 8.");
-          return;
-      };
-      if (length >= 128) {
-          alert ("Please choose a less than or equal to 128.");
-          return;
-      }
-    }
-      
+  if (lowerCase === true) {
+    characters += loCase;
+  }
 
-  var lowerCase = confirm("Would you like lowercase numbers?");
-  var upperCase = confirm("Would you like uppercase letters?");
-  var numbers = confirm("Would you like numbers?");
-  var special = confirm("Would you like special charcters?");
-  var selectedCase = "";
+  if (upperCase === true) {
+    characters += upCase;
+  }
 
-    if (userlowerCase === true) {
-     selectedCase = addCase(confirmlCase, selectedCase);
-    }
-    if (userupperCase === true) {
-     selectedCase = addCase(confirmuCase, selectedCase);
-    }
-    if (usernumbers === true) {
-     selectedCase = addCase(confirmnum, selectedCase);
-    }
-    if (userspecial === true) {
-     selectedCase = addCase(confirmspecialChar, selectedCase);
-    }
+  if (numbers === true) {
+    characters += num;
+  }
 
-    for (var i = 0; i <= getLength; i++) {
+  if (specialChars === true) {
+    characters += spChar;
+  }
 
-     password = password + selectedCase.charAt(Math.floor((Math.random() * selectedCase.length) - 1));
-    }
-} 
+  if (characters.length == 0) {
+    alert("Please select at least one character set");
+    return;
+  }
 
+  splitChar = characters.split("");
+ 
+  
+  function generatePassword() {
+    var pass = "";
+    for (var i = 0; i < length; i++) {
+    pass += splitChar[(Math.floor(Math.random() * splitChar.length))];
+  }
+  return pass;
+}
+
+var password = generatePassword();
+
+
+  var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
-
-
-    // Add event listener to generate button
-    generateBtn.addEventListener("click", writePassword);
-    
-    function addCase(type, selectedCase) {
-        return selectedCase + type;
-    }
-    
-    
-
 }
+
+generateBtn.addEventListener("click", writePassword);
