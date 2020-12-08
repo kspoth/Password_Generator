@@ -1,16 +1,16 @@
 var generateBtn = document.querySelector("#generate");
 
 
-
+// variable arrays for the characters that will go in the generated password.//
 var loCase = "abcdefghijklmnopqrstuvwxyz";
 var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var num = "0123456789";
 var spChar = "!()-.?[]_`~;:!@#$%^&*+=";
 
-
+// function that will write the password.
 function writePassword() {
 
-  
+  // After hitting the button "generate"
   var length = Number(
     prompt("Please choose a number from 8-128")
   )
@@ -28,7 +28,7 @@ function writePassword() {
   var specialChars = confirm("Do you want to include special characters?");
 
  
-  var characters = "";
+  var characterSet = "";
 
   if (lowerCase === true) {
     characters += loCase;
@@ -57,7 +57,7 @@ function writePassword() {
   function generatePassword() {
     var pass = "";
     for (var i = 0; i < length; i++) {
-    pass += splitChar[(Math.floor(Math.random() * splitChar.length))];
+    pass += characterSet.charAt[(Math.floor(Math.random() * characterSet.length))];
   }
   return pass;
 }
