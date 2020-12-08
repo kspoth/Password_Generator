@@ -6,6 +6,8 @@ Generates random passwords.
 
 Using a combination of VS Code, HTML, CSS, and Javascript I developed an application that will generate a random password with your choice to use uppercase letters, lowercase letter, number and/or special character. The generated password will be a minimum of 8 characters and a maximum of 128 characters. This site and application utilizies Javascript functions to create and allow this application to run effectively.
 
+Screen Shot 2020-12-07 at 10.49.33 PM.png
+
 ### Built With
 
 - VS Code
