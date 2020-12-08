@@ -56,7 +56,7 @@ var specialChars = confirm("Would you like special characters?");
 
   splitChar = characters.split("");
  
-  //This function that reads the character string and generates the password based on length and user selections
+  //This function that reads the character string and generates the password based on length and user selections.
   function generatePassword() {
     var pass = "";
     for (var i = 0; i < length; i++) {
